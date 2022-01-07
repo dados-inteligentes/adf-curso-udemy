@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "ingest_Product",
+					"referenceName": "ingest_Product_new",
 					"type": "PipelineReference"
 				},
 				"parameters": {
