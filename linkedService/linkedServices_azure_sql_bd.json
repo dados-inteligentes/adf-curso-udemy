@@ -1,0 +1,19 @@
+{
+	"name": "linkedServices_azure_sql_bd",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=server-adf-source.database.windows.net;Initial Catalog=db-curso-adf;User ID=aluno",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "linkedServices_KeyVault_db",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "pwd-db-curso-adf"
+			}
+		}
+	}
+}

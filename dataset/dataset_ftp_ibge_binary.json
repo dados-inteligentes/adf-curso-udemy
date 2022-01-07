@@ -1,0 +1,26 @@
+{
+	"name": "dataset_ftp_ibge_binary",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedServices_FtpServerIBGE",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Directory": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "FtpServerLocation",
+				"folderPath": {
+					"value": "@dataset().Directory",
+					"type": "Expression"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

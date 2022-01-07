@@ -1,0 +1,27 @@
+{
+	"name": "trigger_product_ingest",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "ingest_Product",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"tbName": "Product"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 5,
+				"startTime": "2022-01-06T14:45:00",
+				"timeZone": "E. South America Standard Time"
+			}
+		}
+	}
+}

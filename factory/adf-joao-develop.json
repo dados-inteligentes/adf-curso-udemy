@@ -1,0 +1,9 @@
+{
+	"name": "adf-joao-develop",
+	"location": "brazilsouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8e24fe26-da2d-49fa-a733-a9db512833e2",
+		"tenantId": "d6c49d15-4b9b-4f38-b636-6f3809eb8860"
+	}
+}

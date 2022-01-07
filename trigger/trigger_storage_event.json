@@ -1,0 +1,28 @@
+{
+	"name": "trigger_storage_event",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "ingest_Product",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"tbName": "product"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/stage/blobs/events",
+			"blobPathEndsWith": "product.txt",
+			"ignoreEmptyBlobs": false,
+			"scope": "/subscriptions/59b5aa9a-bfa0-49b9-bae4-d7b04d633e88/resourceGroups/Eng_de_Dados/providers/Microsoft.Storage/storageAccounts/adls2cursoadf",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

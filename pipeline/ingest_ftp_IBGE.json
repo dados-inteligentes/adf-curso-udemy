@@ -1,0 +1,66 @@
+{
+	"name": "ingest_ftp_IBGE",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "FtpReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*",
+							"useBinaryTransfer": true,
+							"deleteFilesAfterCompletion": false,
+							"disableChunking": false
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "PreserveHierarchy"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "dataset_ftp_ibge_binary",
+						"type": "DatasetReference",
+						"parameters": {
+							"Directory": "Acesso_a_internet_e_posse_celular"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dataSource_adls_ftp_binary",
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "bronze",
+							"folder": "ibge"
+						}
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-01-05T17:07:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
